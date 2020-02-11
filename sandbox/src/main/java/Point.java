@@ -19,8 +19,8 @@ public class Point {
         return this;
     }
 
-    public double distance(Point p2){
-        double d = Math.sqrt((p2.x2 - this.x1) * (p2.x2 - this.x1) + (p2.y2 - this.y1) * (p2.y2 * this.y1));
+    public double distance(Point p2) {
+        double d = Math.sqrt((p2.x2 - this.x1) * (p2.x2 - this.x1) + (p2.y2 - this.y1) * (p2.y2 - this.y1));
         return d;
     }
 
@@ -28,7 +28,6 @@ public class Point {
     public String toString() {
 
         return this.x1 + ";" + this.y1;
-
     }
 
     public String toString1() {
