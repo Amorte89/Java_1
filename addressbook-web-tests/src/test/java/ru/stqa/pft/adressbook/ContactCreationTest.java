@@ -32,7 +32,7 @@ public class ContactCreationTest {
     newContactCreation();
     fillContactForm(new GroupDataContact("test", "test1", "test3", "test4", "mr.", "testing", "addresstest123", "+111111111", "+22222222", "+33333333", "+44444444", "test@test.ts", "test@test1.ts", "test@test2.ts", "test.ru/ts", "11", "April", "1989", "14", "July", "2000", "address2", "123", "test123"));
     submitContactCreation();
-    gotoHomePage();
+    returnHomePage();
   }
 
   private void fillContactForm(GroupDataContact groupDataContact) {
@@ -107,7 +107,7 @@ public class ContactCreationTest {
     wd.findElement(By.name("notes")).sendKeys(groupDataContact.getNotes());
   }
 
-  private void gotoHomePage() {
+  private void returnHomePage() {
     wd.findElement(By.linkText("home page")).click();
   }
 
