@@ -31,10 +31,10 @@ public class GroupCreationsTest {
     initGroupCreation();
     fillGroupForm(new GroupData("test1", "test2", "test3"));
     submitGroupCreation();
-    returnGroupPage();
+    returnToGroupPage();
   }
 
-  private void returnGroupPage() {
+  private void returnToGroupPage() {
     wd.findElement(By.linkText("group page")).click();
   }
 
