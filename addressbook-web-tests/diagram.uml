@@ -2,12 +2,37 @@
 <Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
-  <nodes />
+  <nodes>
+    <node x="0.0" y="76.0">ru.stqa.pft.adressbook.ContactCreationTest</node>
+    <node x="397.0" y="76.0">ru.stqa.pft.adressbook.GroupDeletionTests</node>
+    <node x="170.0" y="147.0">ru.stqa.pft.adressbook.GroupData</node>
+    <node x="0.0" y="147.0">ru.stqa.pft.adressbook.ContactData</node>
+    <node x="202.0" y="76.0">ru.stqa.pft.adressbook.GroupCreationsTest</node>
+    <node x="238.0" y="0.0">ru.stqa.pft.adressbook.TestBase</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
+  <edges>
+    <edge source="ru.stqa.pft.adressbook.GroupDeletionTests" target="ru.stqa.pft.adressbook.TestBase">
+      <point x="0.0" y="-13.0" />
+      <point x="484.5" y="51.0" />
+      <point x="323.83333333333337" y="51.0" />
+      <point x="34.33333333333337" y="13.0" />
+    </edge>
+    <edge source="ru.stqa.pft.adressbook.ContactCreationTest" target="ru.stqa.pft.adressbook.TestBase">
+      <point x="0.0" y="-13.0" />
+      <point x="91.0" y="51.0" />
+      <point x="255.16666666666666" y="51.0" />
+      <point x="-34.33333333333334" y="13.0" />
+    </edge>
+    <edge source="ru.stqa.pft.adressbook.GroupCreationsTest" target="ru.stqa.pft.adressbook.TestBase">
+      <point x="0.0" y="-13.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="71.34090909090918" y="74.72005772005775" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
 </Diagram>
 
