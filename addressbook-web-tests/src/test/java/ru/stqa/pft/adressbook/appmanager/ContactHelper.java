@@ -1,5 +1,6 @@
 package ru.stqa.pft.adressbook.appmanager;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -34,7 +35,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("middlename"), contactData.getMiddlename());
         type(By.name("lastname"), contactData.getLastname());
@@ -68,8 +69,13 @@ public class ContactHelper extends HelperBase {
         wd.findElement(By.name("phone2")).clear();
         wd.findElement(By.name("phone2")).sendKeys(contactData.getPhone2());
         type(By.name("notes"), contactData.getNotes());
-    }
 
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+    }
 
     public void selectContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
@@ -77,6 +83,13 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactModification() {
         click(By.name("update"));
+    }
+
+    public void createContact(ContactData contact, boolean b) {
+        newContactCreation();
+        fillContactForm(contact, b);
+        submitContactCreation();
+        returnToHomePage();
     }
 }
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.BrowserType;
 
 public class TestBase {
 
-    protected final ApplicationHelper app = new ApplicationHelper(BrowserType.IE);
+    protected final ApplicationHelper app = new ApplicationHelper(BrowserType.CHROME);
 
 
     @BeforeMethod(alwaysRun = true)

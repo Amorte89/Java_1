@@ -1,32 +1,33 @@
 package ru.stqa.pft.adressbook.model;
 
 public class ContactData {
-    private final String firstname;
-    private final String middlename;
-    private final String lastname;
-    private final String nickname;
-    private final String title;
-    private final String company;
-    private final String address1;
-    private final String homephone;
-    private final String mobilephone;
-    private final String workphone;
-    private final String fax;
-    private final String email1;
-    private final String email2;
-    private final String email3;
-    private final String homepage;
-    private final String bday;
-    private final String bmonth;
-    private final String byear;
-    private final String aday;
-    private final String amouth;
-    private final String ayear;
-    private final String address2;
-    private final String phone2;
-    private final String notes;
+    private String firstname;
+    private String middlename;
+    private String lastname;
+    private String nickname;
+    private String title;
+    private String company;
+    private String address1;
+    private String homephone;
+    private String mobilephone;
+    private String workphone;
+    private String fax;
+    private String email1;
+    private String email2;
+    private String email3;
+    private String homepage;
+    private String bday;
+    private String bmonth;
+    private String byear;
+    private String aday;
+    private String amouth;
+    private String ayear;
+    private String address2;
+    private String phone2;
+    private String notes;
+    private String group;
 
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address1, String homephone, String mobilephone, String workphone, String fax, String email1, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amouth, String ayear, String address2, String phone2, String notes) {
+    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address1, String homephone, String mobilephone, String workphone, String fax, String email1, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amouth, String ayear, String address2, String phone2, String notes, String group) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -51,6 +52,7 @@ public class ContactData {
         this.address2 = address2;
         this.phone2 = phone2;
         this.notes = notes;
+        this.group = group;
     }
 
     public String getFirstname() {
@@ -147,5 +149,9 @@ public class ContactData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
