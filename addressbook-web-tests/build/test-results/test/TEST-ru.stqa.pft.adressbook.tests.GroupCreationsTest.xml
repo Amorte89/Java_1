@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.adressbook.tests.ContactDeletionTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-26T14:09:34" hostname="LAPTOP-7JK8B82K" time="0.109">
+<testsuite name="ru.stqa.pft.adressbook.tests.GroupCreationsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-03T12:07:41" hostname="LAPTOP-7JK8B82K" time="1.116">
   <properties/>
-  <testcase name="testContactDeletion" classname="ru.stqa.pft.adressbook.tests.ContactDeletionTests" time="0.109"/>
+  <testcase name="testGroupCreations" classname="ru.stqa.pft.adressbook.tests.GroupCreationsTest" time="1.116"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 44069
+Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 48454
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-Feb 26, 2020 3:09:33 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Mar 03, 2020 1:07:41 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
