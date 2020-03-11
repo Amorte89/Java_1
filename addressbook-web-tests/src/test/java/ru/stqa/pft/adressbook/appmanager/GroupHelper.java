@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.adressbook.model.GroupData;
 import ru.stqa.pft.adressbook.model.Groups;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
+    private ApplicationHelper applicationHelper;
 
-    public GroupHelper(WebDriver wd) {
+    public GroupHelper(WebDriver wd, ApplicationHelper applicationHelper) {
         super(wd);
+        this.applicationHelper = applicationHelper;
     }
 
     public void returnToGroupPage() {
@@ -71,11 +71,6 @@ public class GroupHelper extends HelperBase {
         deleteSelectedGroups();
         returnToGroupPage();
     }
-
-    public boolean isThereAGroup() {
-        return isElementPresent(By.name("selected[]"));
-    }
-
 
     public Groups all() {
         Groups groups = new Groups();

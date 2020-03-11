@@ -3,7 +3,7 @@ package ru.stqa.pft.adressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
+    private int id = Integer.MAX_VALUE;
     private String firstname;
     private String middlename;
     private String lastname;
@@ -30,78 +30,161 @@ public class ContactData {
     private String notes;
     private String group;
 
-
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address1, String homephone, String mobilephone, String workphone, String fax, String email1, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amouth, String ayear, String address2, String phone2, String notes, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address1 = address1;
-        this.homephone = homephone;
-        this.mobilephone = mobilephone;
-        this.workphone = workphone;
-        this.fax = fax;
-        this.email1 = email1;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.bday = bday;
-        this.bmonth = bmonth;
-        this.byear = byear;
-        this.aday = aday;
-        this.amouth = amouth;
-        this.ayear = ayear;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-        this.group = group;
-    }
-
-    public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address1, String homephone, String mobilephone, String workphone, String fax, String email1, String email2, String email3, String homepage, String bday, String bmonth, String byear, String aday, String amouth, String ayear, String address2, String phone2, String notes, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address1 = address1;
-        this.homephone = homephone;
-        this.mobilephone = mobilephone;
-        this.workphone = workphone;
-        this.fax = fax;
-        this.email1 = email1;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.bday = bday;
-        this.bmonth = bmonth;
-        this.byear = byear;
-        this.aday = aday;
-        this.amouth = amouth;
-        this.ayear = ayear;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-        this.group = group;
-    }
-
     public int getId() {
         return id;
     }
 
-    public String getFirstname() {
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public ContactData withFirstName(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withLastName(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withMiddleName(String middlename) {
+        this.middlename = middlename;
+        return this;
+    }
+
+    public ContactData withNickName(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public ContactData withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public ContactData withAddress1(String address1) {
+        this.address1 = address1;
+        return this;
+    }
+
+    public ContactData withHomePhone(String homephone) {
+        this.homephone = homephone;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobilephone) {
+        this.mobilephone = mobilephone;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workphone) {
+        this.workphone = workphone;
+        return this;
+    }
+
+    public ContactData withFax(String fax) {
+        this.fax = fax;
+        return this;
+    }
+
+    public ContactData withEmail1(String email1) {
+        this.email1 = email1;
+        return this;
+    }
+
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public ContactData withHomepage(String homepage) {
+        this.homepage = homepage;
+        return this;
+    }
+
+    public ContactData withBday(String bday) {
+        this.bday = bday;
+        return this;
+    }
+
+    public ContactData withBmonth(String bmonth) {
+        this.bmonth = bmonth;
+        return this;
+    }
+
+    public ContactData withByear(String byear) {
+        this.byear = byear;
+        return this;
+    }
+
+    public ContactData withAday(String aday) {
+        this.aday = aday;
+        return this;
+    }
+
+    public ContactData withAmouth(String amouth) {
+        this.amouth = amouth;
+        return this;
+    }
+
+    public ContactData withAyear(String ayear) {
+        this.ayear = ayear;
+        return this;
+    }
+
+    public ContactData withAddress2(String address2) {
+        this.address2 = address2;
+        return this;
+    }
+
+    public ContactData withPhone2(String phone2) {
+        this.phone2 = phone2;
+        return this;
+    }
+
+    public ContactData withNotes(String notes) {
+        this.notes = notes;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, lastname);
+    }
+
+    public String getFirstName() {
         return firstname;
     }
 
-    public String getMiddlename() {
+    public String getMiddleName() {
         return middlename;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastname;
     }
 
@@ -121,15 +204,15 @@ public class ContactData {
         return address1;
     }
 
-    public String getHomephone() {
+    public String getHomePhone() {
         return homephone;
     }
 
-    public String getMobilephone() {
+    public String getMobilePhone() {
         return mobilephone;
     }
 
-    public String getWorkphone() {
+    public String getWorkPhone() {
         return workphone;
     }
 
@@ -194,30 +277,11 @@ public class ContactData {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
-    }
-
-    @Override
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

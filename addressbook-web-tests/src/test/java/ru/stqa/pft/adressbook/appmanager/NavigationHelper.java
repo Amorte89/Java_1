@@ -5,11 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class NavigationHelper extends HelperBase{
 
-    public NavigationHelper(WebDriver wd) {
+    private ApplicationHelper applicationHelper;
+
+    public NavigationHelper(WebDriver wd, ApplicationHelper applicationHelper) {
         super(wd);
+        this.applicationHelper = applicationHelper;
     }
 
-    public void goToHomePage() {
+    public void homePage() {
         click(By.xpath("//*[text()='home']"));
     }
 

@@ -11,12 +11,12 @@ public class TestBase {
     protected static final ApplicationHelper app = new ApplicationHelper(BrowserType.CHROME);
 
 
-    @BeforeSuite//(alwaysRun = true)
+    @BeforeSuite
     public void setUp() {
         app.init();
     }
 
-    @AfterSuite//(alwaysRun = true)
+    @AfterSuite
     public void tearDown() {
         app.stop();
     }

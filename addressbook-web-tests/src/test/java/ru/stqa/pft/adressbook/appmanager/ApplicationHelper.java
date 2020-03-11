@@ -23,36 +23,36 @@ public class ApplicationHelper {
     }
 
     public void init() {
-        if (browser.equals(BrowserType.FIREFOX)) {
+        if (this.browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.CHROME)) {
+        } else if (this.browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
-        } else if (browser.equals(BrowserType.IE)) {
+        } else if (this.browser.equals(BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
 
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook");
-        groupHelper = new GroupHelper(wd);
-        contactHelper = new ContactHelper(wd);
-        navigationHelper = new NavigationHelper(wd);
-        sessionHelper = new SessionHelper(wd);
-        sessionHelper.login("admin", "secret");
+        this.groupHelper = new GroupHelper(wd, this);
+        this.contactHelper = new ContactHelper(wd, this);
+        this.navigationHelper = new NavigationHelper(wd, this);
+        this.sessionHelper = new SessionHelper(wd, this);
+        this.sessionHelper.login("admin", "secret");
     }
 
     public void stop() {
         wd.quit();
     }
 
-    public GroupHelper group() {
-        return groupHelper;
+    public GroupHelper getGroupHelper() {
+        return this.groupHelper;
     }
 
-    public NavigationHelper goTo() {
-        return navigationHelper;
+    public NavigationHelper getNavigationHelper() {
+        return this.navigationHelper;
     }
 
     public ContactHelper getContactHelper() {
-        return contactHelper;
+        return this.contactHelper;
     }
 }
