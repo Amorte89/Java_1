@@ -26,16 +26,36 @@ public class ContactData {
     private String amouth;
     private String ayear;
     private String address2;
-    private String phone2;
     private String notes;
     private String group;
+    private String allPhones;
+    private String allEmails;
+
+
+    public String getAllEmails() {
+        return allEmails;
+    }
 
     public int getId() {
         return id;
     }
 
+    public String getAllPhones() {
+        return allPhones;
+    }
+
     public ContactData withId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
         return this;
     }
 
@@ -141,11 +161,6 @@ public class ContactData {
 
     public ContactData withAddress2(String address2) {
         this.address2 = address2;
-        return this;
-    }
-
-    public ContactData withPhone2(String phone2) {
-        this.phone2 = phone2;
         return this;
     }
 
@@ -262,10 +277,6 @@ public class ContactData {
 
     public String getAddress2() {
         return address2;
-    }
-
-    public String getPhone2() {
-        return phone2;
     }
 
     public String getNotes() {

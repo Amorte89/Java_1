@@ -14,7 +14,7 @@ public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.getContactHelper().all().size() == 0) {
-            app.getContactHelper().create(new ContactData().withFirstName("test1").withLastName("test2").withBday("1").withBmonth("April").withByear("1990").withAday("1").withAmouth("January").withAyear("2000").withAddress2("test").withPhone2("123").withNotes("test").withGroup("test1"), true);
+            app.getContactHelper().create(new ContactData().withFirstName("test1").withLastName("test2").withBday("1").withBmonth("April").withByear("1990").withAday("1").withAmouth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1"), true);
         }
     }
 
