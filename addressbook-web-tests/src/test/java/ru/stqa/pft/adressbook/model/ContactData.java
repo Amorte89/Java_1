@@ -1,36 +1,68 @@
 package ru.stqa.pft.adressbook.model;
 
+import com.google.gson.annotations.Expose;
+
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String firstname;
+    @Expose
     private String middlename;
+    @Expose
     private String lastname;
+    @Expose
     private String nickname;
+    @Expose
     private String title;
+    @Expose
     private String company;
+    @Expose
     private String address1;
+    @Expose
     private String homephone;
+    @Expose
     private String mobilephone;
+    @Expose
     private String workphone;
+    @Expose
     private String fax;
+    @Expose
     private String email1;
+    @Expose
     private String email2;
+    @Expose
     private String email3;
+    @Expose
     private String homepage;
+    @Expose
     private String bday;
+    @Expose
     private String bmonth;
+    @Expose
     private String byear;
+    @Expose
     private String aday;
+    @Expose
     private String amouth;
+    @Expose
     private String ayear;
+    @Expose
     private String address2;
+    @Expose
     private String notes;
+    @Expose
     private String group;
+    private File photo;
     private String allPhones;
     private String allEmails;
 
+
+    public File getPhoto() {
+        return photo;
+    }
 
     public String getAllEmails() {
         return allEmails;
@@ -51,6 +83,11 @@ public class ContactData {
 
     public ContactData withAllEmails(String allEmails) {
         this.allEmails = allEmails;
+        return this;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
         return this;
     }
 
@@ -81,6 +118,10 @@ public class ContactData {
 
     public ContactData withTitle(String title) {
         this.title = title;
+        return this;
+    }
+    public ContactData withCompany(String company) {
+        this.company = company;
         return this;
     }
 
@@ -173,8 +214,6 @@ public class ContactData {
         this.group = group;
         return this;
     }
-
-
 
     @Override
     public boolean equals(Object o) {

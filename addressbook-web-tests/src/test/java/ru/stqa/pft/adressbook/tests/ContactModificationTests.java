@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
 
+import java.io.File;
+
 
 public class ContactModificationTests extends TestBase {
 
@@ -21,9 +23,10 @@ public class ContactModificationTests extends TestBase {
     @Test
     public void testContactModification() {
         Contacts before = app.getContactHelper().all();
+        File photo = new File("src/test/resources/1.png");
         ContactData modifyContact = before.iterator().next();
         ContactData contact = new ContactData ()
-                .withId(modifyContact.getId()).withFirstName("test1").withLastName("test2").withBday("1").withBmonth("April").withByear("1990").withAday("1").withAmouth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1");
+                .withId(modifyContact.getId()).withFirstName("test1").withLastName("test2").withBday("1").withBmonth("April").withByear("1990").withAday("1").withAmouth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1").withPhoto(photo);
         app.getContactHelper().modify(contact, false);
         Contacts after = app.getContactHelper().all();
         Assert.assertEquals(after.size(), before.size());
