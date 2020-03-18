@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ShoppingCartTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-18T11:32:59" hostname="LAPTOP-7JK8B82K" time="14.162">
+  <properties/>
+  <testcase name="testShoppingCart" classname="ShoppingCartTest" time="14.162"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 4398
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Mar 18, 2020 12:32:59 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1584531180.025][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531180.438][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531180.570][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531180.671][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531180.929][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.030][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.135][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.237][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.338][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.439][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531181.540][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531182.266][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531182.439][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531182.601][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531182.787][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.260][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.361][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.463][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.649][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.750][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531183.851][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531184.058][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531187.567][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531187.976][SEVERE]: Timed out receiving message from renderer: 0.100
+[1584531189.729][SEVERE]: Timed out receiving message from renderer: 0.100
+]]></system-err>
+</testsuite>
