@@ -32,7 +32,6 @@ public class ApplicationHelper {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-
         if (this.browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
         } else if (this.browser.equals(BrowserType.CHROME)) {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.adressbook.tests.GroupCreationsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-21T21:09:27" hostname="LAPTOP-7JK8B82K" time="1.426">
+  <properties/>
+  <testcase name="testGroupCreations[0](GroupData{id='2147483647', name='test 0'})" classname="ru.stqa.pft.adressbook.tests.GroupCreationsTest" time="1.426"/>
+  <system-out><![CDATA[22:09:27.482 [Test worker] INFO  r.stqa.pft.adressbook.tests.TestBase - Start test testGroupCreations
+22:09:28.913 [Test worker] INFO  r.stqa.pft.adressbook.tests.TestBase - Stop test testGroupCreations
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
