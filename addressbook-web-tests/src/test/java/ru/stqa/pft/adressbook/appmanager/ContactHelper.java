@@ -59,7 +59,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("fax"), contactData.getFax());
-        type(By.name("email"), contactData.getEmail1());
+        type(By.name("email"), contactData.getEmail());
         type(By.name("email2"), contactData.getEmail2());
         type(By.name("email3"), contactData.getEmail3());
         type(By.name("homepage"), contactData.getHomepage());
@@ -75,7 +75,7 @@ public class ContactHelper extends HelperBase {
         new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAday());
         click(By.name("aday"));
         click(By.name("amonth"));
-        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAmouth());
+        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAmonth());
         type(By.name("ayear"), contactData.getAyear());
         type(By.name("address2"), contactData.getAddress2());
         type(By.name("notes"), contactData.getNotes());
@@ -99,18 +99,18 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void delete(ContactData contact) {
-        selectContactById(contact.getId());
-        submitContactDeletion();
-        acceptAlert();
-        this.applicationHelper.getNavigationHelper().homePage();
-    }
-
     public void modify(ContactData contact, boolean b) {
         selectContactModificationByIndex(contact.getId());
         fillContactForm(contact, b);
         submitContactModification();
         returnToHomePage();
+    }
+
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+        submitContactDeletion();
+        acceptAlert();
+        this.applicationHelper.getNavigationHelper().homePage();
     }
 
     public ContactData infoFromEditForm(ContactData contact) {

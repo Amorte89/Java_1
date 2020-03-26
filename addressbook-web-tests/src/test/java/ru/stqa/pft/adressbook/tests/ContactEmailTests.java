@@ -15,7 +15,7 @@ public class ContactEmailTests extends TestBase{
     public void ensurePreconditions() {
         if (app.getContactHelper().all().size() == 0) {
             app.getContactHelper().create(new ContactData()
-                    .withFirstName("test1").withLastName("test2").withEmail1("123@123.ru").withEmail2("123@123.ru").withEmail3("123@123.ru").withBday("1").withBmonth("April").withByear("1990").withAday("1").withAmouth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1"), true);
+                    .withFirstName("test1").withLastName("test2").withEmail1("123@123.ru").withEmail2("123@123.ru").withEmail3("123@123.ru").withBday("1").withBmonth("April").withByear("1990").withAday("1").wihtAmonth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1"), true);
         }
     }
 
@@ -27,7 +27,7 @@ public class ContactEmailTests extends TestBase{
     }
 
     private String mergeEmails(ContactData contact) {
-        return Arrays.asList(contact.getEmail1(), contact.getEmail2(), contact.getEmail3())
+        return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
                 .stream().filter((s) -> ! s.equals(""))
                 .collect(Collectors.joining("\n"));
     }

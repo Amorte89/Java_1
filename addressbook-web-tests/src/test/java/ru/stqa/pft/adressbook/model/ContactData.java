@@ -1,67 +1,140 @@
 package ru.stqa.pft.adressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook" )
+
 public class ContactData {
+
+    @Id
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column(name = "firstname")
     private String firstname;
+
     @Expose
+    @Column(name = "middlename")
     private String middlename;
+
     @Expose
+    @Column(name = "lastname")
     private String lastname;
+
     @Expose
+    @Column(name = "nickname")
     private String nickname;
+
     @Expose
+    @Column(name = "title")
     private String title;
+
     @Expose
+    @Column(name = "company")
     private String company;
+
     @Expose
+    @Column(name = "address")
+    @Type(type = "text")
     private String address1;
+
     @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String homephone;
+
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilephone;
+
     @Expose
+    @Column(name = "work")
+    @Type(type = "text")
     private String workphone;
+
     @Expose
+    @Column(name = "fax")
+    @Type(type = "text")
     private String fax;
+
     @Expose
-    private String email1;
+    @Column(name = "email")
+    @Type(type = "text")
+    private String email;
+
     @Expose
+    @Column(name = "email2")
+    @Type(type = "text")
     private String email2;
+
     @Expose
+    @Column(name = "email3")
+    @Type(type = "text")
     private String email3;
+
     @Expose
+    @Column(name = "homepage")
+    @Type(type = "text")
     private String homepage;
+
     @Expose
+    @Column(name = "bday", columnDefinition = "TINYINT")
     private String bday;
+
     @Expose
+    @Column(name = "bmonth", columnDefinition = "VARCHAR")
     private String bmonth;
+
     @Expose
+    @Column(name = "byear", columnDefinition = "VARCHAR")
     private String byear;
+
     @Expose
+    @Column(name = "aday", columnDefinition = "TINYINT")
     private String aday;
+
     @Expose
-    private String amouth;
+    @Column(name = "amonth", columnDefinition = "VARCHAR")
+    private String amonth;
+
     @Expose
+    @Column(name = "ayear", columnDefinition = "VARCHAR")
     private String ayear;
+
     @Expose
+    @Column(name = "address2")
+    @Type(type = "text")
     private String address2;
+
     @Expose
+    @Column(name = "notes")
+    @Type(type = "text")
     private String notes;
+
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
+
     @Expose
+    @Transient
     private String group;
-    private File photo;
+
+    @Transient
     private String allPhones;
+
+    @Transient
     private String allEmails;
 
 
     public File getPhoto() {
-        return photo;
+        return (this.photo == null || this.photo.equals("")) ? null : new File(photo);
     }
 
     public String getAllEmails() {
@@ -87,7 +160,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -151,7 +224,7 @@ public class ContactData {
     }
 
     public ContactData withEmail1(String email1) {
-        this.email1 = email1;
+        this.email = email1;
         return this;
     }
 
@@ -190,8 +263,8 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withAmouth(String amouth) {
-        this.amouth = amouth;
+    public ContactData wihtAmonth(String amouth) {
+        this.amonth = amouth;
         return this;
     }
 
@@ -213,21 +286,6 @@ public class ContactData {
     public ContactData withGroup(String group) {
         this.group = group;
         return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
     }
 
     public String getFirstName() {
@@ -274,8 +332,8 @@ public class ContactData {
         return fax;
     }
 
-    public String getEmail1() {
-        return email1;
+    public String getEmail() {
+        return email;
     }
 
     public String getEmail2() {
@@ -306,8 +364,8 @@ public class ContactData {
         return aday;
     }
 
-    public String getAmouth() {
-        return amouth;
+    public String getAmonth() {
+        return amonth;
     }
 
     public String getAyear() {
@@ -326,6 +384,7 @@ public class ContactData {
         return group;
     }
 
+
     @Override
     public String toString() {
         return "ContactData{" +
@@ -333,5 +392,41 @@ public class ContactData {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(middlename, that.middlename) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(address1, that.address1) &&
+                Objects.equals(homephone, that.homephone) &&
+                Objects.equals(mobilephone, that.mobilephone) &&
+                Objects.equals(workphone, that.workphone) &&
+                Objects.equals(fax, that.fax) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(email2, that.email2) &&
+                Objects.equals(email3, that.email3) &&
+                Objects.equals(homepage, that.homepage) &&
+                Objects.equals(bday, that.bday) &&
+                Objects.equals(bmonth, that.bmonth) &&
+                Objects.equals(byear, that.byear) &&
+                Objects.equals(aday, that.aday) &&
+                Objects.equals(amonth, that.amonth) &&
+                Objects.equals(ayear, that.ayear) &&
+                Objects.equals(address2, that.address2) &&
+                Objects.equals(notes, that.notes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, middlename, lastname, nickname, title, company, address1, homephone, mobilephone, workphone, fax, email, email2, email3, homepage, bday, bmonth, byear, aday, amonth, ayear, address2, notes);
     }
 }

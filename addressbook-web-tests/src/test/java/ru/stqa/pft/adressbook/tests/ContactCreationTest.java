@@ -2,7 +2,6 @@ package ru.stqa.pft.adressbook.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.ContactData;
@@ -19,6 +18,7 @@ import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.*;
 
 public class ContactCreationTest extends TestBase {
 
@@ -40,11 +40,11 @@ public class ContactCreationTest extends TestBase {
 
     @Test (dataProvider = "validGroupsFromJson")
     public void testContactCreation(ContactData contact) {
-        Contacts before = app.getContactHelper().all();
+        Contacts before = app.db().contacts();
         app.getContactHelper().create(contact, true);
-        Contacts after = app.getContactHelper().all();
-        Assert.assertEquals(after.size(), before.size() + 1);
-        assertThat(after, equalTo(
-                before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+        Contacts after = app.db().contacts();
+        assertEquals(after.size(), before.size() + 1);
+        contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
+        assertThat(after, equalTo(before.withAdded(contact)));
     }
 }

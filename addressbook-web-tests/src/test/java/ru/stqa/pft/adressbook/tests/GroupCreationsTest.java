@@ -2,8 +2,6 @@ package ru.stqa.pft.adressbook.tests;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.GroupData;
@@ -39,10 +37,10 @@ public class GroupCreationsTest extends TestBase{
   @Test(dataProvider = "validGroupsFromJson")
   public void testGroupCreations(GroupData group) {
     app.getNavigationHelper().groupPage();
-    Groups before = app.getGroupHelper().all();
+    Groups before = app.db().groups();
     app.getGroupHelper().create(group);
     assertThat(app.getGroupHelper().count(), equalTo(before.size() + 1));
-    Groups after = app.getGroupHelper().all();
+    Groups after = app.db().groups();
     assertThat(after, equalTo(
             before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
