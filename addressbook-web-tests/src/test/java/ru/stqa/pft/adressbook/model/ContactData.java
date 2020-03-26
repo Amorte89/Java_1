@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.Objects;
 
 @Entity
-@Table(name = "addressbook" )
+@Table(name = "addressbook")
 
 public class ContactData {
 
@@ -193,6 +193,7 @@ public class ContactData {
         this.title = title;
         return this;
     }
+
     public ContactData withCompany(String company) {
         this.company = company;
         return this;
@@ -384,6 +385,56 @@ public class ContactData {
         return group;
     }
 
+
+    public ContactData withValuesToDbFormat() {
+        this.photo = nullToEmpty(this.photo);
+        return
+                withFirstName(nullToEmpty(this.firstname))
+                        .withMiddleName(nullToEmpty(this.middlename))
+                        .withLastName(nullToEmpty(this.lastname))
+                        .withNickName(nullToEmpty(this.nickname))
+                        .withTitle(nullToEmpty(this.title))
+                        .withCompany(nullToEmpty(this.company))
+                        .withAddress1(nullToEmpty(this.address1))
+                        .withHomePhone(nullToEmpty(this.homephone))
+                        .withMobilePhone(nullToEmpty(this.mobilephone))
+                        .withWorkPhone(nullToEmpty(this.workphone))
+                        .withFax(nullToEmpty(this.fax))
+                        .withEmail1(nullToEmpty(this.email))
+                        .withEmail2(nullToEmpty(this.email2))
+                        .withEmail3(nullToEmpty(this.email3))
+                        .withBday(nullToZero(this.bday))
+                        .withBmonth(nullToDash(this.bmonth))
+                        .withByear(nullToEmpty(this.byear))
+                        .withAday(nullToZero(this.aday))
+                        .wihtAmonth(nullToDash(this.amonth))
+                        .withAyear(nullToEmpty(this.ayear))
+                        .withHomepage(nullToEmpty(this.homepage))
+                        .withAddress2(nullToEmpty(this.address2))
+                        .withNotes(nullToEmpty(this.notes));
+
+    }
+
+    public String nullToEmpty(String s) {
+        if (s == null) {
+            return "";
+        }
+        return s;
+    }
+
+    public String nullToZero(String s) {
+        if (s == null) {
+            return "0";
+        }
+        return s;
+    }
+
+    public String nullToDash(String s) {
+        if (s == null) {
+            return "-";
+        }
+        return s;
+    }
 
     @Override
     public String toString() {
