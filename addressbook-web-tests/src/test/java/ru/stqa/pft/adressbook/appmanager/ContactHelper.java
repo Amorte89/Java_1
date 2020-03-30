@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
+import ru.stqa.pft.adressbook.model.GroupData;
 
 import java.util.List;
 
@@ -31,6 +32,10 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
+    public void addToGroup() {
+        wd.findElement(By.name("add")).click();
+    }
+
     public void acceptAlert() {
         wd.switchTo().alert().accept();
     }
@@ -40,8 +45,14 @@ public class ContactHelper extends HelperBase {
     }
 
     public void returnToHomePage() {
-        click(By.linkText("home page"));
+        wd.findElement(By.linkText("home page")).click();
     }
+
+    public void removeContactFromGroup(){
+        wd.findElement(By.name("remove")).click();
+        this.applicationHelper.getNavigationHelper().homePage();
+    }
+
 
     public void newContactCreation() {
         click(By.linkText("add new"));
@@ -82,10 +93,18 @@ public class ContactHelper extends HelperBase {
         attach(By.name("photo"), contactData.getPhoto());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+    }
+
+    public void contactInGroup(GroupData group){
+        String groupId = String.valueOf(group.getId());
+        new Select(wd.findElement(By.name("group"))).selectByValue(groupId);
     }
 
     public void submitContactModification() {
@@ -112,6 +131,16 @@ public class ContactHelper extends HelperBase {
         acceptAlert();
         this.applicationHelper.getNavigationHelper().homePage();
     }
+
+    public void attachContactToGroup(ContactData contact, GroupData group){
+        this.applicationHelper.getNavigationHelper().homePage();
+        selectContactById(contact.getId());
+        String groupId = String.valueOf(group.getId());
+        new Select(wd.findElement(By.name("to_group"))).selectByValue(groupId);
+        addToGroup();
+        this.applicationHelper.getNavigationHelper().homePage();
+    }
+
 
     public ContactData infoFromEditForm(ContactData contact) {
         selectContactModificationByIndex(contact.getId());

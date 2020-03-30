@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
+import ru.stqa.pft.adressbook.model.Groups;
 
 import java.io.File;
 
@@ -17,9 +18,10 @@ public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0) {
+            Groups groups  = app.db().groups();
             app.getContactHelper().create(new ContactData().withFirstName("test1").withLastName("test2")
                     .withBday("1").withBmonth("April").withByear("1990").withAday("1").wihtAmonth("January")
-                    .withAyear("2000").withAddress2("test").withNotes("test").withGroup("test 1"), true);
+                    .withAyear("2000").withAddress2("test").withNotes("test").inGroup(groups.iterator().next()), true);
         }
     }
 
@@ -31,10 +33,12 @@ public class ContactModificationTests extends TestBase {
         ContactData contact = new ContactData ()
                 .withId(modifyContact.getId()).withFirstName("test1").withLastName("test2").withBday("1").withBmonth("April")
                 .withByear("1990").withAday("1").wihtAmonth("January").withAyear("2000").withAddress2("test").withNotes("test")
-                .withGroup("test 1").withPhoto(photo).withValuesToDbFormat();
+                .withPhoto(photo).withValuesToDbFormat();
         app.getContactHelper().modify(contact, false);
         Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size());
         assertThat(after, equalTo(before.without(modifyContact).withAdded(contact)));
+
+        verifyContactListInUI();
     }
 }

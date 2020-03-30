@@ -8,6 +8,9 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
+
 public class ContactDeletionTests extends TestBase {
 
 
@@ -16,7 +19,7 @@ public class ContactDeletionTests extends TestBase {
         if (app.db().contacts().size() == 0) {
             app.getContactHelper().create(new ContactData().withFirstName("test1").withLastName("test2")
                     .withBday("1").withBmonth("April").withByear("1990").withAday("1").wihtAmonth("January")
-                    .withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1"), true);
+                    .withAyear("2000").withAddress2("test").withNotes("test"), true);
         }
     }
 
@@ -27,6 +30,9 @@ public class ContactDeletionTests extends TestBase {
         app.getContactHelper().delete(deletedContact);
         Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size() - 1);
-        MatcherAssert.assertThat(after, CoreMatchers.equalTo(before.without(deletedContact)));
+        assertThat(after, equalTo(before.without(deletedContact)));
+
+        verifyContactListInUI();
+
     }
 }

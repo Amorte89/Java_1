@@ -16,7 +16,7 @@ public class ContactPhoneTests extends TestBase {
     public void ensurePreconditions() {
         if (app.getContactHelper().all().size() == 0) {
             app.getContactHelper().create(new ContactData()
-                    .withFirstName("test1").withLastName("test2").withHomePhone("+123123123").withMobilePhone("+(123)123123").withWorkPhone("123-123-123").withBday("1").withBmonth("April").withByear("1990").withAday("1").wihtAmonth("January").withAyear("2000").withAddress2("test").withNotes("test").withGroup("test1"), true);
+                    .withFirstName("test1").withLastName("test2").withHomePhone("+123123123").withMobilePhone("+(123)123123").withWorkPhone("123-123-123").withBday("1").withBmonth("April").withByear("1990").withAday("1").wihtAmonth("January").withAyear("2000").withAddress2("test").withNotes("test"), true);
         }
     }
 
