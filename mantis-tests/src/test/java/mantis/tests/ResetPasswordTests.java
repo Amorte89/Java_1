@@ -1,6 +1,7 @@
 package mantis.tests;
 
 import mantis.model.MailMessage;
+import mantis.model.UserData;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,7 +13,8 @@ import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-public class RegistrationTests extends TestBase {
+public class ResetPasswordTests extends TestBase {
+
 
     @BeforeMethod
     public void startMailServer(){
@@ -20,18 +22,23 @@ public class RegistrationTests extends TestBase {
     }
 
     @Test
-    public void testRegistration() throws IOException, MessagingException {
-        long now = System.currentTimeMillis();
-        String user = String.format("user%s", now);
-        String password = "password";
-        String email = String.format("user%s@localhost", now);
-        app.james().createUser(user, password);
-        app.registration().start(user, email);
-//        List<MailMessage> mailMessages = app.james().waitForMail(user, password, 60000);
-        List<MailMessage> mailMessages = app.mail().waitForMail(2, 100000);
+    public void testChangePassword() throws IOException, MessagingException {
+        UserData user = app.db().users().iterator().next();
+        String newPassword = "newPassword";
+//        String username = user.getUsername();
+//        String password = "password";
+        String email = user.getEmail();
+
+        app.login().frontLoginAdmin();
+        app.goTo().manageUsers();
+        app.user().selectUser(user.getId());
+        app.user().resetPassword();
+
+//        List<MailMessage> mailMessages = app.james().waitForMail(username, password, 30000);
+        List<MailMessage> mailMessages = app.mail().waitForMail(1, 30000);
         String confirmationLink = findConfirmationLink(mailMessages, email);
-        app.registration().finish(confirmationLink, password);
-        assertTrue(app.newSession().login(user, password));
+        app.registration().finish(confirmationLink, newPassword);
+        assertTrue(app.newSession().login(user.getUsername(), newPassword));
     }
 
     private String findConfirmationLink(List<MailMessage> mailMessages, String email) {
@@ -40,7 +47,7 @@ public class RegistrationTests extends TestBase {
         return regex.getText(mailMessage.text);
     }
 
-      @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void stopMailServer(){
         app.mail().stop();
     }

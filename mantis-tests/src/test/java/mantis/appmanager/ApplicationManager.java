@@ -18,10 +18,13 @@ public class ApplicationManager {
     private  WebDriver wd;
     private FtpHelper ftp;
     private JamesHelper jamesHelper;
-
     private String browser;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
+    private UserHelper userHelper;
+    private NavigationHelper navigationHelper;
+    private DBHelper dbHelper;
+    private LoginHelper loginHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -89,5 +92,33 @@ public class ApplicationManager {
             jamesHelper = new JamesHelper(this);
         }
         return jamesHelper;
+    }
+
+    public UserHelper user() {
+        if (userHelper == null) {
+            userHelper = new UserHelper(this);
+        }
+        return userHelper;
+    }
+
+    public NavigationHelper goTo() {
+        if (navigationHelper == null) {
+            navigationHelper = new NavigationHelper(this);
+        }
+        return navigationHelper;
+    }
+
+    public DBHelper db() {
+        if (dbHelper == null) {
+            dbHelper = new DBHelper(this);
+        }
+        return dbHelper;
+    }
+
+    public LoginHelper login() {
+        if (loginHelper == null) {
+            loginHelper = new LoginHelper(this);
+        }
+        return loginHelper;
     }
 }
