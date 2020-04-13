@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.adressbook.tests.GroupCreationsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-13T21:02:58" hostname="LAPTOP-7JK8B82K" time="1.019">
+  <properties/>
+  <testcase name="testGroupCreations[0](GroupData{id='2147483647', name='test 0'})" classname="ru.stqa.pft.adressbook.tests.GroupCreationsTest" time="1.019"/>
+  <system-out><![CDATA[23:02:58.848 [Test worker] INFO  r.stqa.pft.adressbook.tests.TestBase - Start test testGroupCreationswith parameters [GroupData{id='2147483647', name='test 0'}]
+Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
+Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
+23:02:59.870 [Test worker] INFO  r.stqa.pft.adressbook.tests.TestBase - Stop test testGroupCreations
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
