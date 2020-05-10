@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Default package</title>
+<title>Test results - Class JavaTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Default package</h1>
+<h1>Class JavaTest</h1>
 <div class="breadcrumbs">
-<a href="../index.html">all</a> &gt; default-package</div>
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; JavaTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -60,33 +61,45 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Classes</a>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Classes</h2>
+<h2>Tests</h2>
 <table>
-<thread>
+<thead>
 <tr>
-<th>Class</th>
-<th>Tests</th>
-<th>Failures</th>
-<th>Ignored</th>
+<th>Test</th>
 <th>Duration</th>
-<th>Success rate</th>
+<th>Result</th>
 </tr>
-</thread>
+</thead>
 <tr>
-<td class="success">
-<a href="../classes/JavaTest.html">JavaTest</a>
-</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1.356s</td>
-<td class="success">100%</td>
+<td class="success">testJavaSiteLoading</td>
+<td class="success">1.356s</td>
+<td class="success">passed</td>
 </tr>
 </table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 19769
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1589108064.058][WARNING]: This version of ChromeDriver has not been tested with Chrome version 81.
+May 10, 2020 12:54:25 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1589108065.506][SEVERE]: Timed out receiving message from renderer: 0.100
+[1589108065.608][SEVERE]: Timed out receiving message from renderer: 0.100
+</pre>
+</span>
 </div>
 </div>
 <div id="footer">

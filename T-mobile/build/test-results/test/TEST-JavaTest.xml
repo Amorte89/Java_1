@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JavaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-10T10:54:25" hostname="LAPTOP-7JK8B82K" time="1.356">
+  <properties/>
+  <testcase name="testJavaSiteLoading" classname="JavaTest" time="1.356"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 80.0.3987.106 (f68069574609230cf9b635cd784cfb1bf81bb53a-refs/branch-heads/3987@{#882}) on port 19769
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1589108064.058][WARNING]: This version of ChromeDriver has not been tested with Chrome version 81.
+May 10, 2020 12:54:25 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[1589108065.506][SEVERE]: Timed out receiving message from renderer: 0.100
+[1589108065.608][SEVERE]: Timed out receiving message from renderer: 0.100
+]]></system-err>
+</testsuite>
