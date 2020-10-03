@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ public class JavaTest {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         // this time test is waiting loading before drop error
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
